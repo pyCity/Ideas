@@ -18,8 +18,8 @@ Description: - Script to backup home directory or full system of all servers.
 servers = {
     "AdminConsole" : "10.0.0.1",
     "DNSServer"    : "10.0.0.2",
-    "DNSServer"    : "10.0.0.3",
-    "DNSServer"    : "10.0.0.4",
+    "Firewall"     : "10.0.0.3",
+    "HiddenServ"   : "10.0.0.4",
     "node1"        : "10.0.0.5",
     "node2"        : "10.0.0.6",
     "node3"        : "10.0.0.7"
