@@ -3,7 +3,7 @@
 """
 Author       - pyCity
 Date         - 1/22/2019
-Version      - 1.1
+Version      - 1.2
 
 Usage:       - python client.py --tls 127.0.0.1 4444
 
