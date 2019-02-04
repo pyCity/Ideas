@@ -145,7 +145,7 @@ function add_sshkey {
 }
 
 # Not finished!
-function add_bashrc{
+function add_bashrc {
     echo "LOL"
 }
 
